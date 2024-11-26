@@ -29,12 +29,12 @@ namespace lib_presentaciones.Implementaciones
             return lista;
         }
 
-        public async Task<List<Facturas>> Buscar(Facturas entidad, string tipo)
+        public async Task<List<Facturas>> Buscar(Facturas entidad,int Num_Factura)
         {
             var lista = new List<Facturas>();
             var datos = new Dictionary<string, object>();
             datos["Entidad"] = entidad;
-            datos["Tipo"] = tipo;
+            datos["Num_Factura "] =Num_Factura  ;
 
             var respuesta = await iComunicacion!.Buscar(datos);
             if (respuesta.ContainsKey("Error"))
