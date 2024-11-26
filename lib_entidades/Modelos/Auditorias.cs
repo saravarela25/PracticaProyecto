@@ -1,5 +1,6 @@
 ﻿namespace lib_entidades.Modelos
 {
+    //Commit
     public class Auditorias
     {
         public int Id { get; set; }
