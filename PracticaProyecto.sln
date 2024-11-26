@@ -19,13 +19,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Servicios", "2 Servicios"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Comunes", "3 Comunes", "{44DD8BE8-45AE-4117-BD3B-C206206FAF0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp_presentacion", "asp_presentacion\asp_presentacion.csproj", "{3B821160-9BEA-47FC-856C-92947DB8A5C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "asp_presentacion", "asp_presentacion\asp_presentacion.csproj", "{3B821160-9BEA-47FC-856C-92947DB8A5C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_presentaciones", "lib_presentaciones\lib_presentaciones.csproj", "{693BB755-A2B3-4FB9-825F-152E7A361B44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_presentaciones", "lib_presentaciones\lib_presentaciones.csproj", "{693BB755-A2B3-4FB9-825F-152E7A361B44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_comunicaciones", "lib_comunicaciones\lib_comunicaciones.csproj", "{CC573740-985A-42AC-9CEB-ADFA7E9A1FD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_comunicaciones", "lib_comunicaciones\lib_comunicaciones.csproj", "{CC573740-985A-42AC-9CEB-ADFA7E9A1FD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp_presentacion2", "asp_presentacion2\asp_presentacion2.csproj", "{3FE64A7E-B3DE-4ACB-852D-D9F4CB883296}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "asp_presentacion2", "asp_presentacion2\asp_presentacion2.csproj", "{3FE64A7E-B3DE-4ACB-852D-D9F4CB883296}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
