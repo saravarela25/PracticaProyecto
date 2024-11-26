@@ -19,7 +19,7 @@ CREATE TABLE [Clientes](
 
 [Id] INT NOT NULL IDENTITY (1,1),
 [Nombre] NVARCHAR(50) NOT NULL,
-[Numero] INT NOT NULL,
+[Numero] NVARCHAR(50) NOT NULL,
 [Cedula] NVARCHAR(50) NOT NULL,
 [Email] NVARCHAR(150)
 
@@ -103,11 +103,11 @@ GO
 
 
 		INSERT INTO Clientes(Cedula, Nombre, Numero, Email)
-VALUES  ('134359226','Sara',525321,'sara@gmail.com'),
-        ('211254983','Luz',623541,'luz@gmail.com'),
-        ('658971546','Juan',782136,'juan@gmail.com'),
-        ('102365789','Maria',102548,'maria@gmail.com'),
-        ('107895367','Felipe',698712,'felipe@gmail.com');
+VALUES  ('134359226','Sara','525321','sara@gmail.com'),
+        ('211254983','Luz','623541','luz@gmail.com'),
+        ('658971546','Juan','782136','juan@gmail.com'),
+        ('102365789','Maria','102548','maria@gmail.com'),
+        ('107895367','Felipe','698712','felipe@gmail.com');
 
 GO
 

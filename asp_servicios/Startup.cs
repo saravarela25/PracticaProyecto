@@ -31,7 +31,7 @@ namespace asp_servicios
             services.AddScoped<IFacturasRepositorio, FacturasRepositorio>();
             services.AddScoped<IMascotas_ClientesRepositorio, Mascotas_ClientesRepositorio>();
             services.AddScoped<IServiciosRepositorio, ServiciosRepositorio>();
-            //services.AddScoped<IClientesRepositorio, ClientesRepositorio>();
+            services.AddScoped<IClientesRepositorio, ClientesRepositorio>();
             services.AddScoped<IMetodos_De_PagosRepositorio, Metodos_De_PagosRepositorio>();
 
             //services.AddScoped<ITiposRepositorio, TiposRepositorio>();
@@ -39,7 +39,7 @@ namespace asp_servicios
             services.AddScoped<IDetalles_FacturasAplicacion, Detalles_FacturasAplicacion>();
             services.AddScoped<IMascotasAplicacion, MascotasAplicacion>();
             services.AddScoped<IFacturasAplicacion, FacturasAplicacion>();
-            //services.AddScoped<IClientesAplicacion, ClientesAplicacion>();
+            services.AddScoped<IClientesAplicacion, ClientesAplicacion>();
             services.AddScoped<IMascotas_ClientesAplicacion, Mascotas_ClientesAplicacion>();
             services.AddScoped<IMetodos_De_PagosAplicacion, Metodos_De_PagosAplicacion>();
             services.AddScoped<IServiciosAplicacion, ServiciosAplicacion>();

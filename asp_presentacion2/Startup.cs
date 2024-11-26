@@ -18,8 +18,9 @@ namespace asp_presentacion
         {
             // Comunicaciones
             services.AddScoped<IMascotasComunicacion, MascotasComunicacion>();
-           
+            services.AddScoped<IClientesComunicacion, ClientesComunicacion>();
             // Presentaciones
+            services.AddScoped<IClientesPresentacion, ClientesPresentacion>();
             services.AddScoped<IMascotasPresentacion, MascotasPresentacion>();
             
 

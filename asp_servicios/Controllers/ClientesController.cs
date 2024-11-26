@@ -3,6 +3,7 @@ using lib_aplicaciones.Interfaces;
 using lib_entidades.Modelos;
 using lib_utilidades;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace asp_servicios.Controllers
 {
