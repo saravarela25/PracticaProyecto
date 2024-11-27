@@ -63,75 +63,75 @@
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Editar)
             {
                 <div class="containers_vn panel panel-default">
-                    <h3>Mascota</h3>
+                    <h3>Detalles_Facturas</h3>
 
                     <div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                Codigo de mascota
+                                Fecha_Servicio
                             </label>
                             <div class="col-lg-6">
-                                <input id="nmCod_Mascota"
+                                <input id="nmFecha_Servicio"
                                        class="cts_forms form-control"
                                        asp-for="@Model.Actual!.Fecha_Servicio" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                Nombre
+                                Estado
                             </label>
                             <div class="col-lg-6">
-                                <input id="nmNombre"
+                                <input id="nmEstado"
                                        class="cts_forms form-control"
                                        asp-for="@Model.Actual!.Estado" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                Tipo de mascota
+                                IVA
                             </label>
                             <div class="col-lg-6">
-                                <input id="nmTipo_Mascota"
+                                <input id="nmIVA"
                                        class="cts_forms form-control"
                                        asp-for="@Model.Actual!.IVA" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                Raza
+                                Precio_Venta
                             </label>
                             <div class="col-lg-6">
-                                <input id="nmRaza"
+                                <input id="nmPrecio_Venta"
                                        class="cts_forms form-control"
                                        asp-for="@Model.Actual!.Precio_Venta" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                Edad
+                                Factura
                             </label>
                             <div class="col-lg-6">
-                                <input id="nmEdad"
+                                <input id="nmFactura"
                                        type="checkbox"
                                        asp-for="@Model.Actual!._Factura" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                Edad
+                                Mascota
                             </label>
                             <div class="col-lg-6">
-                                <input id="nmEdad"
+                                <input id="nmMascota"
                                        type="checkbox"
                                        asp-for="@Model.Actual!._Mascota" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-4 control-label">
-                                Edad
+                                Servicio
                             </label>
                             <div class="col-lg-6">
-                                <input id="nmEdad"
+                                <input id="nmServicio"
                                        type="checkbox"
                                        asp-for="@Model.Actual!._Servicio" />
                             </div>
@@ -162,7 +162,7 @@
                                 Desea borrar la entidad?
                             </h4>
                             <h6 align="left">
-                                @Model.Actual!.Fecha_Servicio
+                                @Model.Actual!.Estado
                             </h6>
                             <br />
                             <br />
@@ -193,19 +193,25 @@
                     <table class="tb_data table table-striped table-bordered table-hover">
                         <tr>
                             <th>
-                                Cod_Mascota
+                                Fecha_Servicio
                             </th>
                             <th class="cl_hidden">
-                                Nombre
+                                Estado
                             </th>
                             <th class="cl_hidden">
-                                Tipo_Mascota
+                                IVA
                             </th>
                             <th>
-                                Raza
+                                Precio_Venta
                             </th>
                             <th class="cl_hidden">
-                                Edad
+                                Factura
+                            </th>
+                            <th class="cl_hidden">
+                                Mascota
+                            </th>
+                            <th class="cl_hidden">
+                                Servicio
                             </th>
                             <th class="cl_actions">
                                 Accion
@@ -216,24 +222,30 @@
                             @foreach (var elemento in Model.Lista)
                             {
                                 <tr>
-                                    @* estan genrando errores
+                                    
                                     <td>
-                                        @elemento.Cod_Mascota
+                                        @elemento.Fecha_Servicio
                                     </td>
                                     <td>
                                     <td class="cl_hidden">
-                                        @elemento.Nombre
+                                        @elemento.Estado
                                     </td>
                                     <td class="cl_hidden">
-                                        @elemento.Tipo_Mascota
+                                        @elemento.IVA
                                     </td>
                                     <td>
-                                        @elemento.Raza
+                                        @elemento.Precio_Venta
                                     </td>
                                     <td class="cl_hidden">
-                                        @elemento.Edad
+                                        @elemento._Factura
                                     </td>
-                                    *@  
+                                    <td class="cl_hidden">
+                                            @elemento._Mascota
+                                    </td>
+                                    <td class="cl_hidden">
+                                            @elemento._Servicio
+                                    </td>
+                                    
                                     <td>
                                         <input type="submit"
                                                value="Modicar"
