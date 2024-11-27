@@ -29,12 +29,12 @@ namespace lib_presentaciones.Implementaciones
             return lista;
         }
 
-        public async Task<List<Servicios>> Buscar(Servicios entidad, string Tipo_Servicio)
+        public async Task<List<Servicios>> Buscar(Servicios entidad, string tipo)
         {
             var lista = new List<Servicios>();
             var datos = new Dictionary<string, object>();
             datos["Entidad"] = entidad;
-            datos["Tipo_Servicio"] = Tipo_Servicio;
+            datos["Tipo"] = tipo;
 
             var respuesta = await iComunicacion!.Buscar(datos);
             if (respuesta.ContainsKey("Error"))
