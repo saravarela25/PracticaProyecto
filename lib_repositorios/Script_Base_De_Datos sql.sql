@@ -103,6 +103,21 @@ CREATE TABLE [Auditorias](
 [Detalles] NVARCHAR(150)
 );
 GO
+
+CREATE TABLE [Roles](
+[Id] INT NOT NULL IDENTITY (1,1),
+[Nombre] NVARCHAR(50) NOT NULL
+);
+GO
+
+CREATE TABLE [Usuarios](
+[Id] INT NOT NULL IDENTITY (1,1),
+[Email] NVARCHAR(50) NOT NULL,
+[Contraseña] NVARCHAR(50) NOT NULL,
+[Rol] INT NOT NULL,
+CONSTRAINT [FK_Rol] FOREIGN KEY ([Rol]) REFERENCES [Roles] ([Id])
+);
+GO
 	
 INSERT INTO Mascotas(Cod_Mascota,Nombre,Tipo_Mascota,Raza,Edad)
 VALUES  ('1234','Princesa','Perro','Criollo',2),
