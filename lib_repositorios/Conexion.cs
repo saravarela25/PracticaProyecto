@@ -50,6 +50,13 @@ namespace lib_repositorios
                 .Where(condiciones)
                 .ToList();
         }
+        public virtual List<Usuarios> Buscar(Expression<Func<Usuarios, bool>> condiciones)
+        {
+            return this.Set<Usuarios>()
+                .Include(x => x._Rol)
+                .Where(condiciones)
+                .ToList();
+        }
 
         public virtual bool Existe<T>(Expression<Func<T, bool>> condiciones) where T : class, new()
         {

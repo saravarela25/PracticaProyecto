@@ -12,6 +12,8 @@ namespace lib_entidades.Modelos
         public string? Contraseña { get; set; }
         public int  Rol { get; set; }
 
+        [ForeignKey("Rol")] public Roles? _Rol { get; set; }
+
         public bool Validar()
         {
             if (string.IsNullOrEmpty(Email) ||

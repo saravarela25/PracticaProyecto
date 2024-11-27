@@ -19,7 +19,6 @@ namespace lib_repositorios.Implementaciones
         {
             this.conexion!.StringConnection = string_conexion;
         }
-
         public List<Usuarios> Listar()
         {
             auditoria!.Guardar(
@@ -28,8 +27,9 @@ namespace lib_repositorios.Implementaciones
                 "Select * from Usuarios",
                 "Se listaron todos los Usuarios."
             );
-            return conexion!.Listar<Usuarios>();
+            return Buscar(x => x != null);
         }
+ 
         public List<Usuarios> Buscar(Expression<Func<Usuarios, bool>> condiciones)
         {
             auditoria!.Guardar(
