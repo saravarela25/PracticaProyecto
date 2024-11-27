@@ -34,6 +34,8 @@ namespace asp_servicios
             services.AddScoped<IServiciosRepositorio, ServiciosRepositorio>();
             services.AddScoped<IClientesRepositorio, ClientesRepositorio>();
             services.AddScoped<IMetodos_De_PagosRepositorio, Metodos_De_PagosRepositorio>();
+            services.AddScoped<IRolesRepositorio, RolesRepositorio>();
+            services.AddScoped<IUsuariosRepositorio, UsuariosRepositorio>();
 
             //services.AddScoped<ITiposRepositorio, TiposRepositorio>();
             // Aplicaciones
@@ -44,6 +46,8 @@ namespace asp_servicios
             services.AddScoped<IMascotas_ClientesAplicacion, Mascotas_ClientesAplicacion>();
             services.AddScoped<IMetodos_De_PagosAplicacion, Metodos_De_PagosAplicacion>();
             services.AddScoped<IServiciosAplicacion, ServiciosAplicacion>();
+            services.AddScoped<IRolesAplicacion, RolesAplicacion>();
+            services.AddScoped<IUsuariosAplicacion, UsuariosAplicacion>();
             //services.AddScoped<ITiposAplicacion, TiposAplicacion>();
             // Controladores
             services.AddScoped<TokenController, TokenController>();
