@@ -19,10 +19,14 @@ namespace asp_presentacion
             // Comunicaciones
             services.AddScoped<IMascotasComunicacion, MascotasComunicacion>();
             services.AddScoped<IClientesComunicacion, ClientesComunicacion>();
+            services.AddScoped<IFacturasComunicacion, FacturasComunicacion>();
+            services.AddScoped<IServiciosComunicacion, ServiciosComunicacion>();
             // Presentaciones
             services.AddScoped<IClientesPresentacion, ClientesPresentacion>();
             services.AddScoped<IMascotasPresentacion, MascotasPresentacion>();
-            
+            services.AddScoped<IFacturasPresentacion, FacturasPresentacion>();
+            services.AddScoped<IServiciosPresentacion, ServiciosPresentacion>();
+
 
             services.AddControllers();
             services.AddEndpointsApiExplorer();
