@@ -93,6 +93,17 @@ CONSTRAINT [FK_Servicio] FOREIGN KEY ([Servicio]) REFERENCES [Servicios] ([Id]),
 CONSTRAINT [FK_Mascota] FOREIGN KEY ([Mascota]) REFERENCES [Mascotas] ([Id])
 );
 GO
+
+CREATE TABLE [Auditorias](
+[Id] INT NOT NULL IDENTITY (1,1),
+[Usuario] NVARCHAR(50) NOT NULL,
+[Entidad] NVARCHAR(50) NOT NULL,
+[Operacion] NVARCHAR(50) NOT NULL,
+[Fecha] DATE DEFAULT GETDATE(),
+[Detalles] NVARCHAR(150)
+);
+GO
+	
 INSERT INTO Mascotas(Cod_Mascota,Nombre,Tipo_Mascota,Raza,Edad)
 VALUES  ('1234','Princesa','Perro','Criollo',2),
         ('5678','Dakota','Perro','Pinscher',5),
@@ -119,8 +130,8 @@ VALUES  ('Efectivo'),
 GO
 		
 INSERT INTO Servicios(Precio,Tipo_Servicio,Descripcion)
-VALUES  (55000.00,'Baño','Se utiliza jabon neutro'),
-		(40000.00,'Vacuna','Se aplica dosis según edad'),
+VALUES  (55000.00,'BaÃ±o','Se utiliza jabon neutro'),
+		(40000.00,'Vacuna','Se aplica dosis segÃºn edad'),
 		(50000.00,'Corte','Se utiliza crema piel sensible'),
 		(120000.00,'Guarderia','Los dias que se requieran');
 
@@ -128,7 +139,7 @@ GO
 
 
 INSERT INTO [Mascotas_Clientes] (Cliente,Mascota)
-VALUES 
+VALUESÂ 
 (2,1),
 (3,1),
 (1,2),
