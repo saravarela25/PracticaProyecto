@@ -7,10 +7,12 @@ namespace lib_repositorios.Implementaciones
     public class ClientesRepositorio : IClientesRepositorio
     {
         private Conexion? conexion = null;
+        private AuditoriasRepositorio? auditoria = null;
 
-        public ClientesRepositorio(Conexion conexion)
+        public ClientesRepositorio(Conexion conexion, AuditoriasRepositorio? auditoria)
         {
             this.conexion = conexion;
+            this.auditoria = auditoria;
         }
 
         public void Configurar(string string_conexion)
@@ -20,6 +22,12 @@ namespace lib_repositorios.Implementaciones
 
         public List<Clientes> Listar()
         {
+            auditoria!.Guardar(
+                "Usuario - Prueba",
+                "Clientes",
+                "Select * from Clientes",
+                "Se listaron todos los Clientes."
+            );
             return conexion!.Listar<Clientes>();
         }
         public List<Clientes> Buscar(Expression<Func<Clientes, bool>> condiciones)
