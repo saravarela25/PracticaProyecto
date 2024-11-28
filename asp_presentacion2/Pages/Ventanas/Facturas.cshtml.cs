@@ -6,15 +6,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_presentacion.Pages.Ventanas
 {
-    public class FacturasModel : PageModel
+        public class FacturasModel : PageModel
     {
         private IFacturasPresentacion? iPresentacion = null;
+        private IClientesPresentacion? iClientesPresentacion = null;
 
-        public FacturasModel(IFacturasPresentacion iPresentacion)
+            public FacturasModel(IFacturasPresentacion iPresentacion, 
+                IClientesPresentacion iClientesPresentacion)
         {
             try
             {
                 this.iPresentacion = iPresentacion;
+                this.iClientesPresentacion = iClientesPresentacion;
                 Filtro = new Facturas();
             }
             catch (Exception ex)
@@ -27,6 +30,7 @@ namespace asp_presentacion.Pages.Ventanas
         [BindProperty] public Facturas? Actual { get; set; }
         [BindProperty] public Facturas? Filtro { get; set; }
         [BindProperty] public List<Facturas>? Lista { get; set; }
+        [BindProperty] public List<Clientes>? Clientes { get; set; }
 
         public virtual void OnGet() { OnPostBtRefrescar(); }
 
@@ -40,6 +44,7 @@ namespace asp_presentacion.Pages.Ventanas
                 var task = this.iPresentacion!.Buscar(Filtro!, "Num_Factura");
                 task.Wait();
                 Lista = task.Result;
+                CargarCombox();
                 Actual = null;
             }
             catch (Exception ex)
@@ -53,6 +58,7 @@ namespace asp_presentacion.Pages.Ventanas
             try
             {
                 Accion = Enumerables.Ventanas.Editar;
+                CargarCombox();
                 Actual = new Facturas();
                
             }
@@ -96,7 +102,6 @@ namespace asp_presentacion.Pages.Ventanas
                 LogConversor.Log(ex, ViewData!);
             }
         }
-
         public virtual void OnPostBtBorrarVal(string data)
         {
             try
@@ -144,6 +149,23 @@ namespace asp_presentacion.Pages.Ventanas
             {
                 if (Accion == Enumerables.Ventanas.Listas)
                     OnPostBtRefrescar();
+            }
+            catch (Exception ex)
+            {
+                LogConversor.Log(ex, ViewData!);
+            }
+        }
+
+        public void CargarCombox()
+        {
+            try
+            {
+                if (!(Clientes == null || Clientes!.Count <= 0))
+                    return;
+
+                var task = this.iClientesPresentacion!.Listar();
+                task.Wait();
+                Clientes = task.Result;
             }
             catch (Exception ex)
             {

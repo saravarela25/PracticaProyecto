@@ -56,7 +56,8 @@ namespace lib_aplicaciones.Implementaciones
 
             switch (tipo.ToUpper())
             {
-                case "NUM_FACTURA":condiciones = x => x.Num_Factura == entidad.Num_Factura;
+                
+                case "NUM_FACTURA":condiciones = x => x.Num_Factura != null && x.Num_Factura.Contains(entidad.Num_Factura!);
                     break;
 
                 case "IVA":condiciones = x => x.IVA == entidad.IVA;

@@ -66,6 +66,15 @@ namespace lib_repositorios
                 .ToList();
         }
 
+        public virtual List<Mascotas_Clientes> Buscar(Expression<Func<Mascotas_Clientes, bool>> condiciones)
+        {
+            return this.Set<Mascotas_Clientes>()
+                .Include(x => x._Cliente)
+                .Include(x => x._Mascota)
+                .Where(condiciones)
+                .ToList();
+        }
+
         public virtual bool Existe<T>(Expression<Func<T, bool>> condiciones) where T : class, new()
         {
             return this.Set<T>().Any(condiciones);

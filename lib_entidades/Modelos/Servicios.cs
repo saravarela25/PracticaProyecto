@@ -10,10 +10,7 @@ namespace lib_entidades.Modelos
     public partial class Servicios
     {
 
-        public Servicios()
-        {
-            Detalles_Facturas = new HashSet<Detalles_Facturas>();
-        }
+      
 
         [Key] public int Id { get; set; }
         public decimal? Precio { get; set; }
