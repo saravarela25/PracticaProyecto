@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_presentacion.Pages.Ventanas
 {
-    public class FacturasModel : PageModel
+    public class Metodos_De_PagosModel : PageModel
     {
-        private IFacturasPresentacion? iPresentacion = null;
+        private IMetodos_De_PagosPresentacion? iPresentacion = null;
 
-        public FacturasModel(IFacturasPresentacion iPresentacion)
+        public Metodos_De_PagosModel(IMetodos_De_PagosPresentacion iPresentacion)
         {
             try
             {
                 this.iPresentacion = iPresentacion;
-                Filtro = new Facturas();
+                Filtro = new Metodos_De_Pagos();
             }
             catch (Exception ex)
             {
@@ -24,9 +24,9 @@ namespace asp_presentacion.Pages.Ventanas
         }
 
         [BindProperty] public Enumerables.Ventanas Accion { get; set; }
-        [BindProperty] public Facturas? Actual { get; set; }
-        [BindProperty] public Facturas? Filtro { get; set; }
-        [BindProperty] public List<Facturas>? Lista { get; set; }
+        [BindProperty] public Metodos_De_Pagos? Actual { get; set; }
+        [BindProperty] public Metodos_De_Pagos? Filtro { get; set; }
+        [BindProperty] public List<Metodos_De_Pagos>? Lista { get; set; }
 
         public virtual void OnGet() { OnPostBtRefrescar(); }
 
@@ -34,10 +34,10 @@ namespace asp_presentacion.Pages.Ventanas
         {
             try
             {
-                Filtro!.Num_Factura = Filtro!.Num_Factura?? "";
+                Filtro!.Tipo_Metodo_Pago = Filtro!.Tipo_Metodo_Pago ?? "";
 
                 Accion = Enumerables.Ventanas.Listas;
-                var task = this.iPresentacion!.Buscar(Filtro!, "Num_Factura");
+                var task = this.iPresentacion!.Buscar(Filtro!, "NOMBRE");
                 task.Wait();
                 Lista = task.Result;
                 Actual = null;
@@ -53,8 +53,8 @@ namespace asp_presentacion.Pages.Ventanas
             try
             {
                 Accion = Enumerables.Ventanas.Editar;
-                Actual = new Facturas();
-               
+                Actual = new Metodos_De_Pagos();
+
             }
             catch (Exception ex)
             {
@@ -81,7 +81,7 @@ namespace asp_presentacion.Pages.Ventanas
             try
             {
                 Accion = Enumerables.Ventanas.Editar;
-                Task<Facturas>? task = null;
+                Task<Metodos_De_Pagos>? task = null;
                 if (Actual!.Id == 0)
                     task = this.iPresentacion!.Guardar(Actual!);
                 else

@@ -4,12 +4,12 @@ using System.Linq.Expressions;
 
 namespace lib_repositorios.Implementaciones
 {
-    public class ClientesRepositorio : IClientesRepositorio
+    public class UsuariosRepositorio : IUsuariosRepositorio
     {
         private Conexion? conexion = null;
         private AuditoriasRepositorio? auditoria = null;
 
-        public ClientesRepositorio(Conexion conexion, AuditoriasRepositorio? auditoria)
+        public UsuariosRepositorio(Conexion conexion, AuditoriasRepositorio? auditoria)
         {
             this.conexion = conexion;
             this.auditoria = auditoria;
@@ -19,60 +19,60 @@ namespace lib_repositorios.Implementaciones
         {
             this.conexion!.StringConnection = string_conexion;
         }
-
-        public List<Clientes> Listar()
+        public List<Usuarios> Listar()
         {
             auditoria!.Guardar(
-                "Usuario - Prueba",
-                "Clientes",
-                "Select * from Clientes",
-                "Se listaron todos los Clientes."
+                "Usuarios - Prueba",
+                "Usuarios",
+                "Select * from Usuarios",
+                "Se listaron todos los Usuarios."
             );
-            return conexion!.Listar<Clientes>();
+            return Buscar(x => x != null);
         }
-        public List<Clientes> Buscar(Expression<Func<Clientes, bool>> condiciones)
+ 
+        public List<Usuarios> Buscar(Expression<Func<Usuarios, bool>> condiciones)
         {
             auditoria!.Guardar(
-                "Usuario - Prueba",
-                "Clientes",
+                "Usuarios - Prueba",
+                "Usuarios",
                 "Select",
                 $"Se lista en base a las condiciones: {condiciones}"
             );
             return conexion!.Buscar(condiciones);
         }
-        public Clientes Guardar(Clientes entidad)
+        public Usuarios Guardar(Usuarios entidad)
         {
             conexion!.Guardar(entidad);
             conexion!.GuardarCambios();
             auditoria!.Guardar(
-                "Usuario - Prueba",
-                "Clientes",
+                "Usuarios - Prueba",
+                "Usuarios",
                 "Insert",
-                $"Se agregó un nuevo cliente: {entidad.Nombre} (Id: {entidad.Id})"
+                $"Se agregó un nuevo usuario con email: {entidad.Email} (Id: {entidad.Id})"
             );
             return entidad;
         }
 
-        public Clientes Modificar(Clientes entidad)
+        public Usuarios Modificar(Usuarios entidad)
         {
             conexion!.Modificar(entidad);
             conexion!.GuardarCambios();
             auditoria!.Guardar(
-                "Usuario - Prueba",
-                "Clientes",
+                "Usuarios - Prueba",
+                "Usuarios",
                 "Update",
-                $"Se actualizó el cliente con Id: {entidad.Id}"
+                $"Se actualizó el usuario con Id: {entidad.Id}"
             );
             return entidad;
         }
 
-        public Clientes Borrar(Clientes entidad)
+        public Usuarios Borrar(Usuarios entidad)
         {
             conexion!.Borrar(entidad);
             conexion!.GuardarCambios();
             auditoria!.Guardar(
-                "Usuario - Prueba",
-                "Clientes",
+                "Usuarios - Prueba",
+                "Usuarios",
                 "Delete",
                 $"Se eliminó la mascota con Id: {entidad.Id}"
             );

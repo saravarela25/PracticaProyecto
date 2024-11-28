@@ -22,6 +22,9 @@ namespace lib_repositorios
         protected DbSet<Metodos_De_Pagos>? Metodos_De_Pagos { get; set; }
 
         protected DbSet<Servicios>? Servicios { get; set; }
+        protected DbSet<Auditorias>? Auditorias { get; set; }
+        protected DbSet<Roles>? Roles { get; set; }
+        protected DbSet<Usuarios>? Usuarios { get; set; }
 
 
         public virtual DbSet<T> ObtenerSet<T>() where T : class, new()
@@ -44,6 +47,13 @@ namespace lib_repositorios
                 .Include(x => x._Factura)
                 .Include(x => x._Mascota)
                 .Include(x => x._Servicio)
+                .Where(condiciones)
+                .ToList();
+        }
+        public virtual List<Usuarios> Buscar(Expression<Func<Usuarios, bool>> condiciones)
+        {
+            return this.Set<Usuarios>()
+                .Include(x => x._Rol)
                 .Where(condiciones)
                 .ToList();
         }
