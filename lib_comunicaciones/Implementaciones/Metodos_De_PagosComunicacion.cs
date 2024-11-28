@@ -5,7 +5,7 @@ namespace lib_comunicaciones.Implementaciones
     public class Metodos_De_PagosComunicacion : IMetodos_De_PagosComunicacion
     {
         private Comunicaciones? comunicaciones = null;
-        private string? Nombre = "Metodos_De_PagosComunicacion";
+        private string? Nombre = "Metodos_De_Pagos";
 
         public Metodos_De_PagosComunicacion()
         {
