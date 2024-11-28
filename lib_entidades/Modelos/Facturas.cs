@@ -16,10 +16,10 @@ namespace lib_entidades.Modelos
         public decimal IVA { get; set; }
         public decimal Total { get; set; }
         public DateTime? Fecha { get; set; }
-
-        
+        public int Cliente { get; set; }
+        public int Metodo_De_Pago { get; set; }
         [ForeignKey("Cliente")] public Clientes? _Cliente { get; set; }
-        [ForeignKey("Metodo_De_Pago")] public Metodos_De_Pagos? _Metodos_De_Pago { get; set; }
+        [ForeignKey("Metodo_De_Pago")] public Metodos_De_Pagos? _Metodo_De_Pago { get; set; }
 
         [NotMapped] public virtual ICollection<Detalles_Facturas>? Detalles_Facturas { get; set; }
 

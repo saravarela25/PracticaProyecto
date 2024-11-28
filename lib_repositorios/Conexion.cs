@@ -50,6 +50,14 @@ namespace lib_repositorios
                 .Where(condiciones)
                 .ToList();
         }
+        public virtual List<Facturas> Buscar(Expression<Func<Facturas, bool>> condiciones)
+        {
+            return this.Set<Facturas>()
+                .Include(x => x._Cliente)
+                .Include(x => x._Metodo_De_Pago)
+                .Where(condiciones)
+                .ToList();
+        }
         public virtual List<Usuarios> Buscar(Expression<Func<Usuarios, bool>> condiciones)
         {
             return this.Set<Usuarios>()
