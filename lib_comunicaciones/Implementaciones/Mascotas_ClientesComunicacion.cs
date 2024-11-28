@@ -5,7 +5,7 @@ namespace lib_comunicaciones.Implementaciones
     public class Mascotas_ClientesComunicacion : IMascotas_ClientesComunicacion
     {
         private Comunicaciones? comunicaciones = null;
-        private string? Nombre = "Mascotas_ClientesComunicacion";
+        private string? Nombre = "Mascotas_Clientes";
 
         public Mascotas_ClientesComunicacion()
         {
