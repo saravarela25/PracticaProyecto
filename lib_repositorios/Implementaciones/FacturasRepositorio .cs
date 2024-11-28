@@ -20,7 +20,8 @@ namespace lib_repositorios.Implementaciones
 
         public List<Facturas> Listar()
         {
-            return conexion!.Listar<Facturas>();
+            return Buscar(x => x != null);
+
         }
 
         public List<Facturas> Buscar(Expression<Func<Facturas, bool>> condiciones)

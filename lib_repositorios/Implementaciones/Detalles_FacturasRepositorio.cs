@@ -22,7 +22,6 @@ namespace lib_repositorios.Implementaciones
         {
             return Buscar(x => x != null);
 
-
         }
 
         public List<Detalles_Facturas> Buscar(Expression<Func<Detalles_Facturas, bool>> condiciones)

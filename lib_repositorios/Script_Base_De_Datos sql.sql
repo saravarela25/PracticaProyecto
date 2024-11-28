@@ -131,7 +131,7 @@ VALUES  ('1234','Princesa','Perro','Criollo',2),
 GO
 
 
-		INSERT INTO Clientes(Cedula, Nombre, Numero, Email)
+INSERT INTO Clientes(Cedula, Nombre, Numero, Email)
 VALUES  ('134359226','Sara','525321','sara@gmail.com'),
         ('211254983','Luz','623541','luz@gmail.com'),
         ('658971546','Juan','782136','juan@gmail.com'),
@@ -178,4 +178,15 @@ VALUES
 (2,3,4,'1-09-2024','Terminado',0.0,50000),
 (3,3,1,'3-09-2024','En proceso',0.0,50000),
 (4,3,2,'2-09-2024','En proceso',0.0,50000);
+GO
+INSERT INTO Roles (Nombre)
+VALUES
+('Admin'),
+('Trabajador');
+GO
+
+INSERT INTO Usuarios(Email,Contraseña,Rol)
+VALUES  ('sofia@gmail.com','1234',1),
+        ('susi@gmail.com','susi1',2);
+
 GO
