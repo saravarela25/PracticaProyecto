@@ -5,11 +5,7 @@ namespace lib_entidades.Modelos
 {
     public class Clientes
     {
-        public Clientes()
-        {
-            this.Facturas = new HashSet<Facturas>();
-            this.Mascotas_Clientes = new HashSet<Mascotas_Clientes>();
-        }
+       
 
         [Key]
         public int Id { get; set; }

@@ -8,11 +8,7 @@ namespace lib_entidades.Modelos
 
     public partial class Mascotas
     {
-        public Mascotas()
-        {
-            this.Detalles_Facturas = new HashSet<Detalles_Facturas>();
-            this.Mascotas_Clientes = new HashSet<Mascotas_Clientes>();
-        }
+       
 
         [Key] public int Id { get; set; }
         public string? Cod_Mascota { get; set; }
