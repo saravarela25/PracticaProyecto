@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_presentacion.Pages.Ventanas
 {
-    //Funciona y lista
+    //Funciona y lista 
     public class Metodos_De_PagosModel : PageModel
     {
         private IMetodos_De_PagosPresentacion? iPresentacion = null;
