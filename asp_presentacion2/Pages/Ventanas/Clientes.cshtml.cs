@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_presentacion2.Pages.Ventanas
 {
+
     public class ClientesModel : PageModel
     {
         private IClientesPresentacion? iPresentacion = null;
