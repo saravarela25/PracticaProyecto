@@ -166,10 +166,10 @@ VALUES 
 GO
 INSERT INTO Facturas (Num_Factura,Cliente,Metodo_De_Pago,IVA,Total,Fecha)
 VALUES
-(10,3,1,0.0,55000.0,'2-08-2024'),
-(11,4,2,0.0,90000.0,'1-09-2024'),
-(12,2,1,0.0,40000.0,'3-09-2024'),
-(20,3,3,0.0,50000.0,'3-09-2024');
+('10',3,1,0.0,55000.0,'2-08-2024'),
+('11',4,2,0.0,90000.0,'1-09-2024'),
+('12',2,1,0.0,40000.0,'3-09-2024'),
+('20',3,3,0.0,50000.0,'3-09-2024');
 GO
  INSERT INTO Detalles_Facturas (Factura,Servicio,Mascota,Fecha_Servicio,Estado,IVA,Precio_Venta)
 VALUES
