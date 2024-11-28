@@ -24,6 +24,7 @@ namespace asp_presentacion
             services.AddScoped<IDetalles_FacturasComunicacion, Detalles_FacturasComunicacion>();
             services.AddScoped<IMascotas_ClientesComunicacion, Mascotas_ClientesComunicacion>();
             services.AddScoped<IMetodos_De_PagosComunicacion, Metodos_De_PagosComunicacion>();
+            services.AddScoped<IUsuariosComunicacion, UsuariosComunicacion>();
             // Presentaciones
             services.AddScoped<IClientesPresentacion, ClientesPresentacion>();
             services.AddScoped<IMascotasPresentacion, MascotasPresentacion>();
@@ -32,6 +33,7 @@ namespace asp_presentacion
             services.AddScoped<IDetalles_FacturasPresentacion, Detalles_FacturasPresentacion>();
             services.AddScoped<IMascotas_ClientesPresentacion, Mascotas_ClientesPresentacion>();
             services.AddScoped<IMetodos_De_PagosPresentacion, Metodos_De_PagosPresentacion>();
+            services.AddScoped<IUsuariosPresentacion, UsuariosPresentacion>();
 
 
             services.AddControllers();
