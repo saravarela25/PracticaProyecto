@@ -3,50 +3,116 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - asp_presentacion</title>
+    <title>@ViewData["Title"] - PetStore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/asp_presentacion.styles.css" asp-append-version="true" />
+
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://cdn.pixabay.com/photo/2016/02/19/11/53/dog-1207816_1280.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        header {
+            background-color: #ffe5b4;
+            color: #5a3e2b;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 2em;
+        }
+
+        nav.navbar {
+            background-color: #ffd699;
+            border-bottom: 2px solid #ffac57;
+        }
+
+        .nav-item {
+            margin-bottom: 10px;
+        }
+
+        .nav-link {
+            color: #5a3e2b;
+            font-weight: bold;
+        }
+
+            .nav-link:hover {
+                color: #ff5733;
+            }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        footer {
+            background-color: #ffd699;
+            color: #5a3e2b;
+            text-align: center;
+            padding: 10px;
+            border-top: 2px solid #ffac57;
+        }
+
+            footer a {
+                color: #5a3e2b;
+                font-weight: bold;
+            }
+
+                footer a:hover {
+                    color: #ff5733;
+                }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">asp_presentacion</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <a class="navbar-brand" asp-area="" asp-page="/Index">PetStore 🐾</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav flex-wrap">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-page="/Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ventanas/Mascotas">Mascotas</a>
+                            <a class="nav-link" asp-area="" asp-page="/Ventanas/Mascotas">Mascotas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ventanas/Clientes">Clientes</a>
+                            <a class="nav-link" asp-area="" asp-page="/Ventanas/Clientes">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ventanas/Servicios">Servicios</a>
+                            <a class="nav-link" asp-area="" asp-page="/Ventanas/Servicios">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ventanas/Facturas">Facturas</a>
+                            <a class="nav-link" asp-area="" asp-page="/Ventanas/Facturas">Facturas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ventanas/Detalles_Facturas">Detalles_Facturas</a>
+                            <a class="nav-link" asp-area="" asp-page="/Ventanas/Detalles_Facturas">Detalles Facturas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ventanas/Mascotas_Clientes">Mascotas_Clientes</a>
+                            <a class="nav-link" asp-area="" asp-page="/Ventanas/Mascotas_Clientes">Mascotas Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ventanas/Metodos_De_Pagos">Metodos_De_Pagos</a>
+                            <a class="nav-link" asp-area="" asp-page="/Ventanas/Metodos_De_Pagos">Métodos de Pago</a>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -57,17 +123,14 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
+    <footer>
         <div class="container">
-            &copy; 2024 - asp_presentacion - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2024 - PetStore - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
