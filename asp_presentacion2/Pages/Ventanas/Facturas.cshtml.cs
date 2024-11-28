@@ -34,10 +34,10 @@ namespace asp_presentacion.Pages.Ventanas
         {
             try
             {
-                Filtro!.Num_Factura = Filtro!.Num_Factura =0;
+                Filtro!.Num_Factura = Filtro!.Num_Factura?? "";
 
                 Accion = Enumerables.Ventanas.Listas;
-                var task = this.iPresentacion!.Buscar(Filtro!, 0);
+                var task = this.iPresentacion!.Buscar(Filtro!, "Num_Factura");
                 task.Wait();
                 Lista = task.Result;
                 Actual = null;

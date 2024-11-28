@@ -15,7 +15,7 @@ namespace lib_entidades.Modelos
         }
 
         [Key] public int Id { get; set; }
-        public int Num_Factura { get; set; }
+        public string? Num_Factura { get; set; }
         public decimal IVA { get; set; }
         public decimal Total { get; set; }
         public DateTime? Fecha { get; set; }
@@ -30,7 +30,7 @@ namespace lib_entidades.Modelos
         [NotMapped] public virtual Metodos_De_Pagos? _Metodos_De_Pago { get; set; }
         public bool Validar()
         {
-            if  (Num_Factura<0 ||
+            if  (string.IsNullOrEmpty(Num_Factura)  ||
                 IVA <0  ||
                 Total <0 )
                 return false;
