@@ -43,7 +43,7 @@ namespace asp_presentacion.Pages.Ventanas
                 Filtro!.Tipo_Metodo_Pago = Filtro!.Tipo_Metodo_Pago ?? "";
 
                 Accion = Enumerables.Ventanas.Listas;
-                var task = this.iPresentacion!.Buscar(Filtro!, "NOMBRE");
+                var task = this.iPresentacion!.Buscar(Filtro!, "Tipo_Metodo_Pago");
                 task.Wait();
                 Lista = task.Result;
                 Actual = null;
