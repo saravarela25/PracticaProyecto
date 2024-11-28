@@ -103,14 +103,7 @@
                     </div>
                 </div>
             }
-						@*
-            @if (ViewData.ContainsKey("Mensaje"))
-            {
-                <input type="hidden"
-                   asp-for="@Model.Accion" />
-                @await Html.PartialAsync("../Emergentes/Mensajes.cshtml");
-            }*@
-
+					
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Borrar)
             {
                 <div class='popup'>

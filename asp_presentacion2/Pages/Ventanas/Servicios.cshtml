@@ -124,10 +124,10 @@
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Listas ||
             Model.Accion == lib_utilidades.Enumerables.Ventanas.Borrar)
             {
-                <input id="flDescripcion"
+                <input id="flTipo_Servicio"
                        class="cts_forms form-control"
-                       asp-for="@Model.Filtro!.Descripcion"
-                       placeholder="Descripción" />
+                       asp-for="@Model.Filtro!.Tipo_Servicio"
+                       placeholder="Tipo de servicio" />
                 <br />
 
                 <div class="containers_vn panel panel-default">

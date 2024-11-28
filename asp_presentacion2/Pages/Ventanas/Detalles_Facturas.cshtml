@@ -50,6 +50,12 @@
                        asp-for="@Model.Actual!.IVA" />
                 <input type="hidden"
                        asp-for="@Model.Actual!.Precio_Venta" />
+                <input type="hidden"
+                       asp-for="@Model.Actual!.Factura" />
+                <input type="hidden"
+                       asp-for="@Model.Actual!.Mascota" />
+                <input type="hidden"
+                       asp-for="@Model.Actual!.Servicio" />
             }
 
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Editar)
@@ -88,6 +94,36 @@
                                        asp-for="@Model.Actual!.Precio_Venta" />
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                Factura
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmFactura"
+                                       class="cts_forms form-control"
+                                       asp-for="@Model.Actual!.Factura" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                Mascota
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmMascota"
+                                       class="cts_forms form-control"
+                                       asp-for="@Model.Actual!.Mascota" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                Servicio
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmServicio"
+                                       class="cts_forms form-control"
+                                       asp-for="@Model.Actual!.Servicio" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             }
@@ -104,7 +140,7 @@
                                 ¿Desea borrar el servicio?
                             </h4>
                             <h6 align="left">
-                                @Model.Actual!.Estado
+                                @Model.Actual!.Id
                             </h6>
                             <br />
                             <br />
@@ -145,6 +181,15 @@
                             <th>
                                 Precio_Venta
                             </th>
+                            <th>
+                                Factura
+                            </th>
+                            <th>
+                                Mascota
+                            </th>
+                            <th>
+                                Servicio
+                            </th>
                             <th class="cl_actions">
                                 Acción
                             </th>
@@ -165,6 +210,15 @@
                                     </td>
                                     <td>
                                         @elemento.Precio_Venta
+                                    </td>
+                                    <td>
+                                        @elemento.Factura
+                                    </td>
+                                    <td>
+                                        @elemento.Mascota
+                                    </td>
+                                    <td>
+                                        @elemento.Servicio
                                     </td>
                                     <td>
                                         <input type="submit"

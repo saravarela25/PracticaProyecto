@@ -1,127 +1,95 @@
-CREATE DATABASE db_Tienda_MASCOTAS;
+CREATE DATABASE db_TiendaMascotas;
 GO
-USE db_Tienda_MASCOTAS;
+USE db_TiendaMascotas;
 GO
 
 CREATE TABLE [Mascotas](
-[Id] INT NOT NULL IDENTITY (1,1),
-[Cod_Mascota] NVARCHAR (50) NOT NULL,
-[Nombre] NVARCHAR(50) DEFAULT 'UNNAMED',
+[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
+[Cod_Mascota] NVARCHAR(50) NOT NULL,
+[Nombre] NVARCHAR(50) DEFAULT '',
 [Tipo_Mascota] NVARCHAR(50) NOT NULL,
 [Raza] NVARCHAR(50) NOT NULL,
-[Edad] INT NOT NULL,
-
-CONSTRAINT [PK_Mascotas] PRIMARY KEY CLUSTERED ([Id])
+[Edad] INT NOT NULL
 );
 GO
 
 CREATE TABLE [Clientes](
-
-[Id] INT NOT NULL IDENTITY (1,1),
+[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
 [Nombre] NVARCHAR(50) NOT NULL,
 [Numero] NVARCHAR(50) NOT NULL,
 [Cedula] NVARCHAR(50) NOT NULL,
 [Email] NVARCHAR(150)
-
-CONSTRAINT [PK_Clientes] PRIMARY KEY CLUSTERED ([Id])
 );
 GO
 
 CREATE TABLE [Mascotas_Clientes](
-
-[Id] INT NOT NULL IDENTITY (1,1),
-[Cliente] INT NOT NULL,
-[Mascota] INT NOT NULL
-
-CONSTRAINT [PK_Mascotas_Clientes] PRIMARY KEY CLUSTERED ([Id]),
-CONSTRAINT [FK_Mascotas] FOREIGN KEY ([Mascota]) REFERENCES [Mascotas] ([Id]) ON DELETE No Action ON UPDATE No Action,
-CONSTRAINT [FK_Clientes] FOREIGN KEY ([Cliente]) REFERENCES [Clientes] ([Id]) ON DELETE No Action ON UPDATE No Action
+[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
+[Cliente] INT NOT NULL REFERENCES [Clientes] ([Id]),
+[Mascota] INT NOT NULL REFERENCES [Mascotas] ([Id])
 );
-
 GO
 
 CREATE TABLE [Metodos_De_Pagos](
-
-[Id] INT NOT NULL IDENTITY (1,1),
-[Tipo_Metodo_Pago] NVARCHAR(100) NOT NULL,
-
-CONSTRAINT [PK_Metodos_De_Pagos] PRIMARY KEY CLUSTERED ([Id])
+[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
+[Tipo_Metodo_Pago] NVARCHAR(100) NOT NULL
 );
 GO
 
 CREATE TABLE [Facturas](
-
-[Id] INT NOT NULL IDENTITY (1,1),
+[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
 [Num_Factura] NVARCHAR(50) NOT NULL,
-[Cliente] INT NOT NULL,
-[Metodo_De_Pago] INT NOT NULL,
+[Cliente] INT NOT NULL REFERENCES [Clientes] ([Id]),
+[Metodo_De_Pago] INT NOT NULL REFERENCES [Metodos_De_Pagos] ([Id]),
 [IVA] DECIMAL(18,2) NOT NULL,
 [Total] DECIMAL(18,2) NOT NULL,
-[Fecha] DATE DEFAULT GETDATE(),
-
-CONSTRAINT [PK_Facturas] PRIMARY KEY CLUSTERED ([Id]),
-CONSTRAINT [FK_Cliente] FOREIGN KEY ([Cliente]) REFERENCES [Clientes] ([Id]),
-CONSTRAINT [FK_Metodo_De_Pago] FOREIGN KEY ([Metodo_De_Pago]) REFERENCES [Metodos_De_Pagos] ([Id])
+[Fecha] DATE DEFAULT GETDATE()
 );
 GO
 
 CREATE TABLE [Servicios](
-
-[Id] INT NOT NULL IDENTITY (1,1),
+[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
 [Precio] DECIMAL(18,2) NOT NULL,
 [Tipo_Servicio] NVARCHAR(50) NOT NULL,
-[Descripcion] NVARCHAR(50),
-
-CONSTRAINT [PK_Servicios] PRIMARY KEY CLUSTERED ([Id])
+[Descripcion] NVARCHAR(50)
 );
 GO
 
 CREATE TABLE [Detalles_Facturas](
-
-[Id] INT NOT NULL IDENTITY (1,1),
-[Factura] INT NOT NULL,
-[Servicio] INT NOT NULL,
-[Mascota] INT NOT NULL,
+[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
+[Factura] INT NOT NULL REFERENCES [Facturas] ([Id]),
+[Servicio] INT NOT NULL REFERENCES [Servicios] ([Id]),
+[Mascota] INT NOT NULL REFERENCES [Mascotas] ([Id]),
 [Fecha_Servicio] DATE DEFAULT GETDATE(),
 [Estado] NVARCHAR(50),
 [IVA] DECIMAL(18,2) NOT NULL,
-[Precio_Venta] DECIMAL(18,2) NOT NULL,
-
-CONSTRAINT [PK_Detalles_Facturas] PRIMARY KEY CLUSTERED ([Id]),
-CONSTRAINT [FK_Facturas] FOREIGN KEY ([Factura]) REFERENCES [Facturas] ([Id]),
-CONSTRAINT [FK_Servicio] FOREIGN KEY ([Servicio]) REFERENCES [Servicios] ([Id]),
-CONSTRAINT [FK_Mascota] FOREIGN KEY ([Mascota]) REFERENCES [Mascotas] ([Id])
+[Precio_Venta] DECIMAL(18,2) NOT NULL
 );
 GO
 
 CREATE TABLE [Auditorias](
-[Id] INT NOT NULL IDENTITY (1,1),
+[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
 [Usuario] NVARCHAR(50) NOT NULL,
 [Entidad] NVARCHAR(50) NOT NULL,
 [Operacion] NVARCHAR(50) NOT NULL,
 [Fecha] DATE DEFAULT GETDATE(),
-[Detalles] NVARCHAR(150),
-CONSTRAINT [PK_Auditorias] PRIMARY KEY CLUSTERED ([Id])
+[Detalles] NVARCHAR(150)
 );
 GO
 
 CREATE TABLE [Roles](
-[Id] INT NOT NULL IDENTITY (1,1),
-[Nombre] NVARCHAR(50) NOT NULL,
-CONSTRAINT [PK_Roles] PRIMARY KEY CLUSTERED ([Id])
+[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
+[Nombre] NVARCHAR(50) NOT NULL
 );
 GO
 
 CREATE TABLE [Usuarios](
-[Id] INT NOT NULL IDENTITY (1,1),
+[Id] INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
 [Email] NVARCHAR(50) NOT NULL,
 [Contraseña] NVARCHAR(50) NOT NULL,
-[Rol] INT NOT NULL,
-CONSTRAINT [PK_Usuarios] PRIMARY KEY CLUSTERED ([Id]),
-CONSTRAINT [FK_Rol] FOREIGN KEY ([Rol]) REFERENCES [Roles] ([Id])
+[Rol] INT NOT NULL REFERENCES [Roles] ([Id])
 );
 GO
-	
+
 INSERT INTO Mascotas(Cod_Mascota,Nombre,Tipo_Mascota,Raza,Edad)
 VALUES  ('1234','Princesa','Perro','Criollo',2),
         ('5678','Dakota','Perro','Pinscher',5),
