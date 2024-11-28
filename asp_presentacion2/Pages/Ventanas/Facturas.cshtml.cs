@@ -38,6 +38,12 @@ namespace asp_presentacion.Pages.Ventanas
         {
             try
             {
+                var variable_session = HttpContext.Session.GetString("Usuario");
+                if (String.IsNullOrEmpty(variable_session))
+                {
+                    HttpContext.Response.Redirect("/");
+                    return;
+                }
                 Filtro!.Num_Factura = Filtro!.Num_Factura?? "";
 
                 Accion = Enumerables.Ventanas.Listas;
