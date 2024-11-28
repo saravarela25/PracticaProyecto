@@ -8,10 +8,7 @@ namespace lib_entidades.Modelos
 
     public partial class Metodos_De_Pagos
     {
-        public Metodos_De_Pagos()
-        {
-            Facturas = new HashSet<Facturas>();
-        }
+   
 
         [Key] public int Id { get; set; }
         public string? Tipo_Metodo_Pago { get; set; }
