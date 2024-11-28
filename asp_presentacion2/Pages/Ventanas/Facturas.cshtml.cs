@@ -11,8 +11,6 @@ namespace asp_presentacion.Pages.Ventanas
         private IFacturasPresentacion? iPresentacion = null;
         private IClientesPresentacion? iClientesPresentacion = null;
 
-
-
             public FacturasModel(IFacturasPresentacion iPresentacion, 
                 IClientesPresentacion iClientesPresentacion)
         {
