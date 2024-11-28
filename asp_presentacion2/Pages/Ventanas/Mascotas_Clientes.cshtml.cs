@@ -34,10 +34,17 @@ namespace asp_presentacion.Pages.Ventanas
         {
             try
             {
-                // Filtro!.Cliente = Filtro!.Cliente ?? 0;
-                Filtro.Cliente = Filtro.Cliente != 0 ? Filtro.Cliente : 0; // revisar
 
-                 
+                var variable_session = HttpContext.Session.GetString("Usuario");
+                if (String.IsNullOrEmpty(variable_session))
+                {
+                    HttpContext.Response.Redirect("/");
+                    return;
+                }
+                Filtro!.Cliente = int.TryParse(Filtro!.Cliente.ToString(), out var clienteParsed) ? clienteParsed : 0;
+
+
+
 
                 Accion = Enumerables.Ventanas.Listas;
                 var task = this.iPresentacion!.Buscar(Filtro!, "Cliente");

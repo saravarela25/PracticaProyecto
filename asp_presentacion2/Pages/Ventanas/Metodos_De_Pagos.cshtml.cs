@@ -34,6 +34,12 @@ namespace asp_presentacion.Pages.Ventanas
         {
             try
             {
+                var variable_session = HttpContext.Session.GetString("Usuario");
+                if (String.IsNullOrEmpty(variable_session))
+                {
+                    HttpContext.Response.Redirect("/");
+                    return;
+                }
                 Filtro!.Tipo_Metodo_Pago = Filtro!.Tipo_Metodo_Pago ?? "";
 
                 Accion = Enumerables.Ventanas.Listas;
