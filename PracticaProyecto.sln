@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_comunicaciones", "lib_c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "asp_presentacion2", "asp_presentacion2\asp_presentacion2.csproj", "{3FE64A7E-B3DE-4ACB-852D-D9F4CB883296}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 pruebas unitarias", "4 pruebas unitarias", "{30B4AD12-812C-4D7B-AF1A-C4252DE1929E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mst_pruebas", "mst_pruebas\mst_pruebas.csproj", "{3DBED823-3A3D-4C78-8CA1-84531C4987BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,10 @@ Global
 		{3FE64A7E-B3DE-4ACB-852D-D9F4CB883296}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FE64A7E-B3DE-4ACB-852D-D9F4CB883296}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FE64A7E-B3DE-4ACB-852D-D9F4CB883296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DBED823-3A3D-4C78-8CA1-84531C4987BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DBED823-3A3D-4C78-8CA1-84531C4987BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DBED823-3A3D-4C78-8CA1-84531C4987BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DBED823-3A3D-4C78-8CA1-84531C4987BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +84,7 @@ Global
 		{693BB755-A2B3-4FB9-825F-152E7A361B44} = {FC7B2529-A8F6-4351-AB1F-0B1E9EF1656E}
 		{CC573740-985A-42AC-9CEB-ADFA7E9A1FD5} = {FC7B2529-A8F6-4351-AB1F-0B1E9EF1656E}
 		{3FE64A7E-B3DE-4ACB-852D-D9F4CB883296} = {FC7B2529-A8F6-4351-AB1F-0B1E9EF1656E}
+		{3DBED823-3A3D-4C78-8CA1-84531C4987BE} = {30B4AD12-812C-4D7B-AF1A-C4252DE1929E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EB592722-6B9F-4ACD-9175-EA81575863CD}
