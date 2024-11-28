@@ -38,22 +38,24 @@ namespace asp_presentacion.Pages
         {
             try
             {
-                if (string.IsNullOrEmpty(Email) &&
-                    string.IsNullOrEmpty(Contraseña))
+                // Haciendo debug aqui verifica, puse mensaje para control de errores      - Alejo
+                if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Contraseña))
                 {
-                    OnPostBtClean();
+                    ViewData["Error"] = "Debe ingresar ambos campos.";
                     return;
                 }
 
-                if ("Usuario.123" != Email + "." + Contraseña)
+                if (Email == "Usuario" && Contraseña == "123")
                 {
-                    OnPostBtClean();
-                    return;
+                    HttpContext.Session.SetString("Usuario", Email!);
+                    EstaLogueado = true;
+                    ViewData["Logged"] = true;
                 }
-                ViewData["Logged"] = true;
-                HttpContext.Session.SetString("Usuario", Email!);
-                EstaLogueado = true;
-                OnPostBtClean();
+                else
+                {
+                    ViewData["Error"] = "Credenciales incorrectas.";
+                    OnPostBtClean();
+                }
             }
             catch (Exception ex)
             {
