@@ -1,19 +1,17 @@
 ﻿@page
 @model asp_presentacion.Pages.Ventanas.Metodos_De_PagosModel
 @{
-    ViewData["Titulo"] = "Metodos_De_Pagos";
+    ViewData["Titulo"] = "Métodos de Pago";
 }
 <center>
     <div>
-        <form method="POST"
-              enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
             @Html.AntiForgeryToken()
 
             <div align="left">
-                <h3>Metodos_De_Pagos</h3>
+                <h3>Métodos de Pago</h3>
             </div>
-            <div align="left"
-                 class="bt_panel_buttons">
+            <div align="left" class="bt_panel_buttons">
                 <input type="submit"
                        value="Refrescar"
                        asp-page-handler="BtRefrescar"
@@ -36,117 +34,63 @@
                        disabled="@(Model.Accion == lib_utilidades.Enumerables.Ventanas.Listas)" />
             </div>
 
-            @if (Model.Accion != lib_utilidades.Enumerables.Ventanas.Listas ||
-            Model.Accion == lib_utilidades.Enumerables.Ventanas.Borrar)
-            {
-                <input type="hidden"
-                       asp-for="@Model.Actual!.Id" />
-            }
-            @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Borrar)
-            {
-                <input type="hidden"
-                       asp-for="@Model.Actual!.Tipo_Metodo_Pago" />
-
-            }
-
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Editar)
             {
                 <div class="containers_vn panel panel-default">
-                    <h3>Metodo de Pago</h3>
-
+                    <h3>Editar Método de Pago</h3>
                     <div>
                         <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                Metodo de Pago
-                            </label>
+                            <label class="col-lg-4 control-label">Tipo de Método de Pago</label>
                             <div class="col-lg-6">
-                                <input id="nmCod_Metodos_De_Pagos"
+                                <input id="nmTipoMetodoPago"
                                        class="cts_forms form-control"
                                        asp-for="@Model.Actual!.Tipo_Metodo_Pago" />
                             </div>
                         </div>
-                                                                 
                     </div>
                 </div>
             }
-            @*
-            @if (ViewData.ContainsKey("Mensaje"))
-            {
-            <input type="hidden"
-            asp-for="@Model.Accion" />
-            @await Html.PartialAsync(
-            "../Emergentes/Mensajes.cshtml")
-            ;
-            }
-            *@
+
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Borrar)
             {
                 <div class='popup'>
                     <div class='pp_del_inner'>
-                        <div style='width:95%'>
-                            <h2 align="left">
-                                Mensaje
-                            </h2>
-
-                            <h4 align="left">
-                                Desea borrar la entidad?
-                            </h4>
-                            <h6 align="left">
-                                @Model.Actual!.Tipo_Metodo_Pago
-                            </h6>
-                            <br />
-                            <br />
-                            <input type="submit"
-                                   value="Borrar"
-                                   asp-page-handler="BtBorrar"
-                                   class="btn btn-secondary" />
-                            <input type="submit"
-                                   value="Cerrar"
-                                   asp-page-handler="BtCancelar"
-                                   class="btn btn-secondary" />
-                        </div>
+                        <h2>Mensaje</h2>
+                        <h4>¿Desea borrar el método de pago?</h4>
+                        <h6>@Model.Actual!.Tipo_Metodo_Pago</h6>
+                        <br />
+                        <input type="submit" value="Borrar" asp-page-handler="BtBorrar" class="btn btn-secondary" />
+                        <input type="submit" value="Cerrar" asp-page-handler="BtCancelar" class="btn btn-secondary" />
                     </div>
                 </div>
             }
 
-            @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Listas ||
-            Model.Accion == lib_utilidades.Enumerables.Ventanas.Borrar)
+            @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Listas)
             {
-                <input id="flTipoMetodoPago"
-                       class="cts_forms form-control"
-                       asp-for="@Model.Filtro!.Tipo_Metodo_Pago"
-                       placeholder="Tipo metodo de pago" />
+                <input id="flTipoMetodoPago" class="cts_forms form-control"
+                       asp-for="@Model.Filtro!.Tipo_Metodo_Pago" placeholder="Tipo de Método de Pago" />
                 <br />
 
                 <div class="containers_vn panel panel-default">
                     <table class="tb_data table table-striped table-bordered table-hover">
                         <tr>
-                           
-                            <th class="cl_hidden">
-                                Tipo metodo de pago
-                            </th>
-                            
-                            <th class="cl_actions">
-                                Accion
-                            </th>
+                            <th>Id</th>
+                            <th>Tipo de Método de Pago</th>
+                            <th class="cl_actions">Acción</th>
                         </tr>
                         @if (Model != null && Model.Lista != null)
                         {
                             @foreach (var elemento in Model.Lista)
                             {
                                 <tr>
-                                   
-                                    <td class="cl_hidden">
-                                        @elemento.Tipo_Metodo_Pago
-                                    </td>                                   
+                                    <td>@elemento.Id</td>
+                                    <td>@elemento.Tipo_Metodo_Pago</td>
                                     <td>
-                                        <input type="submit"
-                                               value="Modificar"
+                                        <input type="submit" value="Modificar"
                                                asp-page-handler="BtModificar"
                                                class="btn btn-secondary"
                                                asp-route-data="@elemento.Id" />
-                                        <input type="submit"
-                                               value="Borrar"
+                                        <input type="submit" value="Borrar"
                                                asp-page-handler="BtBorrarVal"
                                                class="btn btn-secondary"
                                                asp-route-data="@elemento.Id" />
