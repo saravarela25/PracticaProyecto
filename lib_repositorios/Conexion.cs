@@ -54,7 +54,7 @@ namespace lib_repositorios
         {
             return this.Set<Facturas>()
                 .Include(x => x._Cliente)
-                .Include(x => x._Metodos_De_Pagoo)
+                .Include(x => x._Metodo_De_Pago)
                 .Where(condiciones)
                 .ToList();
         }
