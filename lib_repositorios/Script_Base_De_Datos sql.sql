@@ -52,7 +52,7 @@ GO
 CREATE TABLE [Facturas](
 
 [Id] INT NOT NULL IDENTITY (1,1),
-[Num_Factura] INT NOT NULL,
+[Num_Factura] NVARCHAR(50) NOT NULL,
 [Cliente] INT NOT NULL,
 [Metodo_De_Pago] INT NOT NULL,
 [IVA] DECIMAL(18,2) NOT NULL,
