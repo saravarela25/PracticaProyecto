@@ -69,7 +69,7 @@ namespace lib_aplicaciones.Implementaciones
                     break;
 
                 case "COMPLEJA":condiciones = x =>
-                        (entidad.Num_Factura > 0 && x.Num_Factura == entidad.Num_Factura) ||
+                        (x.Num_Factura != null && x.Num_Factura.Contains(entidad.Num_Factura!)) ||
                         (entidad.IVA > 0 && x.IVA == entidad.IVA) ||
                         (entidad.Total > 0 && x.Total == entidad.Total) ||
                         (entidad.Fecha != null && x.Fecha == entidad.Fecha);
