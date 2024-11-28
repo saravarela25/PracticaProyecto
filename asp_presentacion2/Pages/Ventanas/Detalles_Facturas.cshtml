@@ -47,8 +47,6 @@
                 <input type="hidden"
                        asp-for="@Model.Actual!.Fecha_Servicio" />
                 <input type="hidden"
-                       asp-for="@Model.Actual!.Estado" />
-                <input type="hidden"
                        asp-for="@Model.Actual!.IVA" />
                 <input type="hidden"
                        asp-for="@Model.Actual!.Precio_Venta" />
@@ -57,7 +55,7 @@
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Editar)
             {
                 <div class="containers_vn panel panel-default">
-                    <h3>Detalles_Facturas</h3>
+                    <h3>Editar Detalles_Facturas</h3>
 
                     <div>
                         <div class="form-group">
@@ -68,16 +66,6 @@
                                 <input id="nmFecha_Servicio"
                                        class="cts_forms form-control"
                                        asp-for="@Model.Actual!.Fecha_Servicio" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">
-                                Estado
-                            </label>
-                            <div class="col-lg-6">
-                                <input id="nmEstado"
-                                       class="cts_forms form-control"
-                                       asp-for="@Model.Actual!.Estado" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -95,25 +83,14 @@
                                 Precio_Venta
                             </label>
                             <div class="col-lg-6">
-                                <input id="nmPrecio_Venta"
+                                <input id="nmPrecioVenta"
                                        class="cts_forms form-control"
                                        asp-for="@Model.Actual!.Precio_Venta" />
                             </div>
                         </div>
-                       
                     </div>
                 </div>
             }
-            @*
-            @if (ViewData.ContainsKey("Mensaje"))
-            {
-            <input type="hidden"
-            asp-for="@Model.Accion" />
-            @await Html.PartialAsync(
-            "../Emergentes/Mensajes.cshtml")
-            ;
-            }
-            *@
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Borrar)
             {
                 <div class='popup'>
@@ -124,7 +101,7 @@
                             </h2>
 
                             <h4 align="left">
-                                Desea borrar la entidad?
+                                ¿Desea borrar el servicio?
                             </h4>
                             <h6 align="left">
                                 @Model.Actual!.Estado
@@ -147,31 +124,48 @@
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Listas ||
             Model.Accion == lib_utilidades.Enumerables.Ventanas.Borrar)
             {
-                
                 <input id="flEstado"
                        class="cts_forms form-control"
                        asp-for="@Model.Filtro!.Estado"
                        placeholder="Estado" />
                 <br />
-              
+
                 <div class="containers_vn panel panel-default">
                     <table class="tb_data table table-striped table-bordered table-hover">
                         <tr>
-                            <th>Fecha_Servicio</th>
-                            <th class="cl_hidden">Estado</th>
-                            <th class="cl_hidden">IVA</th>
-                            <th>Precio_Venta</th>
-                            <th class="cl_actions">Accion</th>
+                            <th>
+                                Fecha_Servicio
+                            </th>
+                            <th>
+                                Estado
+                            </th>
+                            <th>
+                                IVA
+                            </th>
+                            <th>
+                                Precio_Venta
+                            </th>
+                            <th class="cl_actions">
+                                Acción
+                            </th>
                         </tr>
                         @if (Model != null && Model.Lista != null)
                         {
                             @foreach (var elemento in Model.Lista)
                             {
                                 <tr>
-                                    <td>@elemento.Fecha_Servicio</td>
-                                    <td class="cl_hidden">@elemento.Estado</td>
-                                    <td class="cl_hidden">@elemento.IVA</td>
-                                    <td>@elemento.Precio_Venta</td>
+                                    <td>
+                                        @elemento.Fecha_Servicio
+                                    </td>
+                                    <td>
+                                        @elemento.Estado
+                                    </td>
+                                    <td>
+                                        @elemento.IVA
+                                    </td>
+                                    <td>
+                                        @elemento.Precio_Venta
+                                    </td>
                                     <td>
                                         <input type="submit"
                                                value="Modificar"
@@ -189,7 +183,6 @@
                         }
                     </table>
                 </div>
-
             }
         </form>
     </div>

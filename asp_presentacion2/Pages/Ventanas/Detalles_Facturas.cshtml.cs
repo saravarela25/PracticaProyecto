@@ -4,7 +4,6 @@ using lib_utilidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-
 namespace asp_presentacion.Pages.Ventanas
 {
     public class Detalles_FacturasModel : PageModel
@@ -35,7 +34,7 @@ namespace asp_presentacion.Pages.Ventanas
         {
             try
             {
-                Filtro!.Estado = Filtro!.Estado??"";
+                Filtro!.Estado = Filtro!.Estado ?? "";
 
                 Accion = Enumerables.Ventanas.Listas;
                 var task = this.iPresentacion!.Buscar(Filtro!, "Estado");
